@@ -101,15 +101,23 @@
                                                                 </div>
                                                             </div>
                                                             <div class="add-actions">
-                                                                <ul class="add-actions-link">
-                                                                    <li class="add-cart ">
+                                                                <ul class="list-unstyled d-flex">
+                                                                    <li class="mr-1">
                                                                         <form action="{{ route('cart.add', $product->id) }}" method="POST">
                                                                             @csrf
-                                                                            <button type="submit" class="btn btn-primary">Add to cart</button>
+                                                                            <button type="submit" class="btn btn-primary">Thêm vào giỏ hàng</button>
                                                                         </form>
                                                                     </li>
-                                                                    <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
-                                                                    <li><a class="links-details" href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>
+                                                                    <li class="mr-1">
+                                                                        <a class="btn btn-outline-danger" href="wishlist.html">
+                                                                            <i class="fa fa-heart-o"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a class="btn btn-outline-info" href="quickview.html" data-toggle="modal" data-target="#exampleModalCenter">
+                                                                            <i class="fa fa-eye"></i>
+                                                                        </a>
+                                                                    </li>
                                                                 </ul>
                                                             </div>
                                                         </div>
