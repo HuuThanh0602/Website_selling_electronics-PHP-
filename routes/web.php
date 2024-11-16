@@ -11,7 +11,13 @@ Route::get('/', [GuestsController::class, 'index'])->name('welcome');
 Route::get('/introduction', [GuestsController::class, 'introduction'])->name('introduction');
 
 Route::get('/products', [GuestsController::class, 'products'])->name('products');
-Route::get('/detail', [ProductsController::class, 'show'])->name('products.show');
+Route::get('/products/detail/{id}', [GuestsController::class, 'productshow'])->name('product.show');
+
+Route::get('/articles', [GuestsController::class, 'articles'])->name('articles');
+Route::get('/articles/detail/{id}', [GuestsController::class, 'articleshow'])->name('article.show');
+
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -20,10 +26,22 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/cart/{product}', [GuestsController::class, 'add'])->name('cart.add');
     Route::get('/cart/remove/{id}', [GuestsController::class, 'removeFromCart'])->name('cart.remove');
+
+    Route::get('/shopping/cart', [GuestsController::class, 'shoppingCart'])->name('shopping.cart');
+    Route::post('/shopping/cart/upadte', [GuestsController::class, 'updateCart'])->name('shopping.update');
+    
+    Route::get('/checkout', [GuestsController::class, 'viewCheckout'])->name('shopping.checkout');
+
+    Route::post('/checkout/store', [GuestsController::class, 'checkoutStore'])->name('checkout.store');
+
+
 });
 
 Route::middleware([CheckAdmin::class])->group(function () {
+
+
     Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+    Route::get('/infor', [AdminController::class, 'infor']);
    
     Route::get('/load-products', [AdminController::class, 'loadProducts']);
     Route::get('/add-products', [AdminController::class, 'createproduct']);
@@ -45,6 +63,17 @@ Route::middleware([CheckAdmin::class])->group(function () {
     Route::put('/admin/edit-articles/{id}', [AdminController::class, 'updatearticle'])->name('articles.update');
 
     Route::delete('/articles/{id}', [AdminController::class, 'destroyarticle'])->name('articles.destroy');
+
+    Route::get('/load-orders', [AdminController::class, 'loadOrder']);
+    Route::put('/orders/{id}/status', [AdminController::class, 'updateStatus'])->name('orders.updateStatus');
+
+    Route::get('/load-users', [AdminController::class, 'loadUser']);
+    Route::put('/users/{id}/role', [AdminController::class, 'updateRole'])->name('users.updateRole');
+    Route::put('/users/{id}/password', [AdminController::class, 'updatePassword'])->name('users.updatePassword');
+    
+    
+
+
 });
 
 require __DIR__.'/auth.php';

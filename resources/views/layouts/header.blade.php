@@ -1,14 +1,35 @@
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/logo.png') }}">
+    <link rel="stylesheet" href="{{ asset('css/material-design-iconic-font.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/fontawesome-stars.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/meanmenu.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/venobox.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/nice-select.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/helper.css') }}">
+    <link rel="stylesheet" href="{{ asset('style.css') }}">
+    <link rel="stylesheet" href="{{ asset('style2.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">      
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="{{ asset('js/vendor/modernizr-2.8.3.min.js') }}"></script>
 <header class="li-header-4" style="background-color:#263b96;">
                 <div class="header-middle pl-sm-0 pr-sm-0 pl-xs-0 pr-xs-0">
                     <div class="container" >
                         <div class="row">
                             <div class="col-lg-2">
                                 <div class="logo pb-sm-30 pb-xs-30">
-                                <img src="images/logo.png"   style="width: 80px;" alt="">
+                                    <a href="{{route('welcome')}}"> <img src="{{ asset('images/logo.png') }}"  style="width: 80px;" alt=""></a>
+                               
                                 </div>
                             </div>
                             <div class="col-lg-10 pl-0 ml-sm-15 ml-xs-15">
-                                <form action="#" class="hm-searchbox">
+                                <form action="" class="hm-searchbox">
                                     <input type="text" placeholder="Enter your search key ...">
                                     <button class="li-btn" type="submit"><i class="fa fa-search"></i></button>
                                 </form>
@@ -25,13 +46,13 @@
                                                 <ul class="minicart-product-list">
                                                     @foreach($cartItems ?? collect() as $cartItem)
                                                     <li>
-                                                        <a href="" class="minicart-product-image">
-                                                            <img src="images/product/small-size/{{$cartItem->product->image}}.jpg" alt="cart products">
+                                                        <a href="{{route('product.show', $cartItem->product->id)}}" class="minicart-product-image">
+                                                            <img src=" {{ asset ('images/product/'.$cartItem->product->image)}}" alt="cart products">
                                                         </a>
                                                         <div class="minicart-product-details d-flex">
                                                             <div>
                                                                 <h6><a href=""></a>{{$cartItem->product->name}}</h6>
-                                                                <span>{{$cartItem->price}}</span>
+                                                                <span>{{ number_format($cartItem->price, 0, ',', '.') }} VNĐ</span>
                                                             </div>
                                                             <span class="quantity" style="margin-left: auto; padding-left: 10px;">x{{$cartItem->quantity}}</span>
                                                         </div>
@@ -47,7 +68,6 @@
                                                             padding-left: 10px; 
                                                         }
                                                         </style>
-
                                                         <button class="close">
                                                             <a href="{{ route('cart.remove', $cartItem->id) }}"><i class="fa fa-close"></i></a>
                                                             
@@ -55,12 +75,12 @@
                                                     </li> 
                                                     @endforeach                                                   
                                                 </ul>
-                                                <p class="minicart-total">Tổng tiền: <span>{{$totalAmount}} VNĐ</span></p>
+                                                <p class="minicart-total">Tổng tiền: <span>{{ number_format($totalAmount, 0, ',', '.') }}VNĐ</span></p>
                                                 <div class="minicart-button">
-                                                    <a href="checkout.html" class="li-button li-button-dark li-button-fullwidth li-button-sm">
+                                                    <a href="{{ route('shopping.cart') }}" class="li-button li-button-dark li-button-fullwidth li-button-sm">
                                                         <span>Giỏ hàng</span>
                                                     </a>
-                                                    <a href="checkout.html" class="li-button li-button-fullwidth li-button-sm">
+                                                    <a href="{{route('shopping.checkout')}}" class="li-button li-button-fullwidth li-button-sm">
                                                         <span>Thanh toán</span>
                                                     </a>
                                                 </div>
@@ -76,11 +96,21 @@
                                                 </div>                                          
                                             <div class="minicart">
                                                 <ul class="minicart-product-list">
+                                                    @if($role === 'admin')
+                                                        <li>
+                                                            <a class="dropdown-item" href="{{ route('admin') }}" style="color: black;">
+                                                                Quản trị trang web
+                                                            </a>
+                                                        </li>
+                                                    
+                                                    @endif
                                                     <li>
                                                     <a class="dropdown-item" href="{{ route('profile.edit') }}" style="color: black;">
                                                         Hồ sơ
                                                     </a>
                                                     </li>
+                                                    
+                                                    
                                                     <li>  
                                                         <form method="POST" action="{{ route('logout') }}" style="margin-top: 0.1rem;">
                                                                 @csrf
@@ -118,48 +148,23 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12">
-                               <div class="hb-menu" style="margin:0 auto; width: 53%;">
+                               <div class="hb-menu d-flex justify-content-center" style="margin:0 auto;">
                                    <nav>
                                        <ul >
-                                           <li class="" ><a href="index.php" style="color:#263b96;">Trang Chủ</li>
-                                           </li>
-                                           <li class="megamenu-holder"><a href="" style="color:#263b96;">Sản phẩm</a>
+                                           <li  class="dropdown-holder"><a href="{{route('welcome')}}" style="color:#263b96;">Trang Chủ</li>                                          
+                                           <li class="megamenu-holder"><a href="{{route('products')}}" style="color:#263b96;">Sản phẩm</a>
                                                <ul class="megamenu hb-megamenu">
                                                    <li><a href="">Sản Phẩm</a>
                                                            <ul>                                            
                                                            <li><a href=""></a></li>                                                                                                        
                                                            </ul>
-                                                   </li>
-                                                       
+                                                   </li>                                                      
                                                </ul>
                                            </li>
-                                           <li class="dropdown-holder"><a href="blog.php" style="color:#263b96;">BLOG</a>
-                                              
-                                           </li>
-                                           <li class="dropdown-holder"><a href="{{ route('introduction') }}" style="color:#263b96;">GIỚI THIỆU</a>
-                                              
-                                           </li>
-                                           <li class="megamenu-static-holder"><a href="index.php" style="color:#263b96;">Tư liệu tham khảo</a>
-                                               <ul class="megamenu hb-megamenu">
-                                                   <li><a href="blog.php">Blog Layouts</a>
-                                                       <ul>
-                                                           <li><a href="blog-2-column.html">Blog 2 Column</a></li>
-                                                           <li><a href="blog-3-column.html">Blog 3 Column</a></li>
-                                                           <li><a href="blog-right-sidebarr.html">Grid Left Sidebar</a></li>
-                                                           <li><a href="blog.php">Grid Right Sidebar</a></li>
-                                                           <li><a href="blog-list.html">Blog List</a></li>                                                          
-                                                       </ul>
-                                                   </li>
-                                                   <li><a href="blog-details-left-sidebar.html">Blog Details Pages</a>
-                                                       <ul>
-                                                           <li><a href="blog-details-left-sidebar.html">Left Sidebar</a></li>
-                                                           <li><a href="blog-details-right-sidebar.html">Right Sidebar</a></li>
-                                                           <li><a href="blog-audio-format.html">Blog Audio Format</a></li>
-                                                           <li><a href="blog-video-format.html">Blog Video Format</a></li>
-                                                           <li><a href="blog-gallery-format.html">Blog Gallery Format</a></li>
-                                                       </ul>
-                                                   </li>
-                                               </ul>
+                                           <li class=""><a href="{{route('articles')}}" style="color:#263b96;">BÀI VIẾT</a></li>
+                                           <li class=""><a href="{{ route('introduction') }}" style="color:#263b96;">GIỚI THIỆU</a></li>
+                                           <li class="megamenu-static-holder"><a href="{{route('welcome')}}" style="color:#263b96;">Tư liệu tham khảo</a>
+                                               
                                            </li>
                                                 
                                        </ul>
@@ -170,10 +175,9 @@
                     </div>
                 </div>
             </header>
-            <!-- Nút chat con con -->
 <div id="chat-widget" class="chat-widget">
     <button id="chat-btn" class="chat-btn">
-        <i class="bi bi-chat-dots"></i> <!-- Biểu tượng chat -->
+        <i class="bi bi-chat-dots"></i> 
     </button>
     <div id="chat-box" class="chat-box">
         <div class="chat-header">
@@ -181,7 +185,6 @@
             <button id="close-chat" class="close-chat">X</button>
         </div>
         <div class="chat-messages" id="chat-messages">
-            <!-- Tin nhắn sẽ hiển thị ở đây -->
         </div>
         <div class="chat-input">
             <input type="text" id="message-input" placeholder="Nhập tin nhắn...">
@@ -201,29 +204,38 @@
 .chat-btn {
     background-color: #007bff;
     border: none;
-    border-radius: 48%;
-    padding: 15px;
-    font-size: 24px;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px; 
     color: white;
     cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .chat-btn:hover {
-    background-color: #0069d9 ;
+    background-color: #0056b3;
+    transform: scale(1.1);
 }
+
 .chat-box {
     display: none;
     position: fixed;
-    bottom: 70px;
+    bottom: 90px;
     right: 20px;
     background-color: white;
-    width: 300px;
-    height: 400px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 320px;
+    height: 450px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     flex-direction: column;
     box-sizing: border-box;
+    animation: slideIn 0.3s ease-out;
 }
 
 .chat-header {
@@ -294,6 +306,7 @@
     background-color: #f1f1f1;
     align-self: flex-start;
 }
+
 
 </style>
 <script>

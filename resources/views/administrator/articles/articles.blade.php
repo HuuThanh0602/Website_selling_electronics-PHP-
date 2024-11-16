@@ -33,7 +33,8 @@
                 <td>{{ $article->id }}</td>
                 <td>{{ $article->title }}</td>
                 <td>
-                    <img src="images/articles/{{ $article->image }}" alt="Li's article Image" style="width: 100px; height: auto;">
+                    <img src=" {{ asset('images/articles/'.$article->image) }}" alt="Li's article Image" style="width: 100px; height: auto;">
+
                 </td>
                 <td>{{ $article->content }}</td>
                 <td>{{ $article->created_at }}</td>
@@ -73,7 +74,6 @@
                 }
             });
         });
-
         $(document).on("click", "[id^='edit-article-btn-']", function(e) {
             e.preventDefault(); 
             var articleId = $(this).attr('id').split('-').pop();  

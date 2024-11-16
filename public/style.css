@@ -10,10 +10,10 @@
 
 body {
 	color: #242424;
-	font-family: 'Rubik', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-size: 14px;
 	font-style: normal;
-	font-weight: normal;
+	font-weight: 500;
 	overflow-x: hidden;
 }
 a {
@@ -388,7 +388,7 @@ textarea:focus {
 /*----------------------------------------*/
 /*Home One | Slider Background Image*/
 .bg-1, .bg-2, .bg-3 {
-	background-image: url(1.jpg);
+	background-image: url(images/slider/1.jpg);
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
@@ -396,55 +396,10 @@ textarea:focus {
 	width: 100%;
 }
 .bg-2 {
-	background-image: url(2.jpg);
+	background-image: url(images/slider/2.jpg);
 }
 .bg-3 {
-	background-image: url(3.jfif);
-}
-/*Home Two | Slider Background Image*/
-.bg-4, .bg-5, .bg-6 {
-	background-image: url(images/slider/4.jpg);
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: cover;
-	min-height: 475px;
-	width: 100%;
-}
-.bg-5 {
-	background-image: url(images/slider/5.jpg);
-}
-.bg-6 {
-	background-image: url(images/slider/6.jpg);
-}
-/*Home Three | Slider Background Image*/
-.bg-7, .bg-8, .bg-9 {
-	background-image: url(images/slider/7.jpg);
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: cover;
-	min-height: 425px;
-	width: 100%;
-}
-.bg-8 {
-	background-image: url(images/slider/8.jpg);
-}
-.bg-9 {
-	background-image: url(images/slider/9.jpg);
-}
-/*Home Four | Slider Background Image*/
-.bg-10, .bg-11, .bg-12 {
-	background-image: url(images/slider/10.jpg);
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: cover;
-	min-height: 770px;
-	width: 100%;
-}
-.bg-11 {
-	background-image: url(images/slider/11.jpg);
-}
-.bg-12 {
-	background-image: url(images/slider/12.jpg);
+	background-image: url(images/slider/3.jpg);
 }
 /*----------------------------------------*/
 /*  li's Background Variation Set 
@@ -1687,9 +1642,9 @@ textarea:focus {
 	display: flex;
 	color: #242424;
 	text-transform: uppercase;
-	font-size: 14px;
+	font-size: 18px;
+	font-weight: 900;
 	line-height: 35px;
-	font-weight: 500;
 	padding: 8px 0;
 }
 .hb-menu-2 nav > ul > li > a {
@@ -2061,9 +2016,9 @@ textarea:focus {
 	color: #c8c8c8;
 	cursor: pointer;
 	display: inline-block;
-	font-family: 'Rubik', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-size: 20px;
-	font-weight: 500;
+	font-weight: 900;
 	line-height: 18px;
 	padding: 0 30px 0 0;
 	position: relative;
@@ -2208,7 +2163,7 @@ textarea:focus {
 	color: #0363cd;
 	display: block;
 	font-size: 14px;
-	font-weight: 500;
+	font-weight: 800;
 	line-height: 18px;
 	text-transform: capitalize;
 }

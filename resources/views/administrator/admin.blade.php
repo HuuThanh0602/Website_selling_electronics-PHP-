@@ -8,15 +8,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/logo.png') }}">
+
     <style>
-        html, body {
-        height: 100%;
-        margin: 0;
+       body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
         }
 
         .d-flex {
-            height: 100vh; 
+            display: flex;
+            height: 100vh;
         }
 
         .main-left {
@@ -24,7 +29,7 @@
             color: white;
             padding: 20px;
             width: 20%;
-            height: 110%; 
+            height: 100%;
         }
 
         .main-left h2 {
@@ -33,7 +38,7 @@
         }
 
         .main-left div {
-            margin: 15px 0;
+            margin: 10px 0;
             font-size: 18px;
             padding: 10px;
             border-radius: 5px;
@@ -45,125 +50,155 @@
             background-color: #495057;
         }
 
-        .table-title {
-            margin-bottom: 20px;
+        #main-right-content {
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+            height: 100%;
+            overflow-y: auto;
         }
 
-        .table-title h2 {
-            font-size: 28px;
-            font-weight: bold;
+        #dynamic-content {
+            flex-grow: 1;
         }
-
-
-        .button a {
-            text-decoration: none;
-            color: white;
-            background-color: #28a745;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .button a:hover {
-            background-color: #218838;
-        }
-
-        .table th, .table td {
-            vertical-align: middle;
-        }
-
-        .table th {
-            background-color: #f8f9fa;
-            color: #495057;
-        }
-
-        .table tbody tr:hover {
-            background-color: #f1f1f1;
-        }
-        .edit-icon, .delete-icon {
-            font-size: 20px;
-            color: #007bff;
+        #admin {
             cursor: pointer;
+            background-color: transparent;
+            font-size: 23px;
         }
 
-        .edit-icon:hover {
-            color: #0056b3;
+        #admin-dropdown {
+            list-style: none;
+        
+        }
+        #admin-dropdown div{
+            margin: 9px;
+        
         }
 
-        .delete-icon:hover {
-            color: #dc3545;
+        #admin-dropdown li {
+            background-color: #495057;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            padding: 0px
         }
+        ul{
+           padding: 0px;
+        }
+
+        #admin-dropdown li:hover {
+            background-color: #6c757d;
+        } 
+
     </style>
 </head>
 <body>
     <div class="d-flex">
         <div class="main-left">
-            <h2 class="title">Quản Trị Website</h2>
-            <div class="main-left-1" id="main-left-content">
+            <h2 class="title">Trang chủ</h2>
+            
+            <div class="main-left-1" id="infor">
                 <i class="bi bi-house-gear-fill"></i> Trang chủ quản trị
             </div>
-            <div class="main-left-2" id="load-product">
+            
+            <div class="main-left-2" id="load-products">
                 <i class="bi bi-box"></i> Sản Phẩm
             </div>
             <div class="main-left-3" id="load-articles">
                 <i class="bi bi-file-earmark-post"></i> Bài Viết
             </div>
-            <div>
+            <div class="main-left-3" id="load-orders">
+                <i class="bi bi-truck"></i> Đơn Hàng
+            </div>
+            <div class="main-left-3" id="load-users">
+                <i class="bi bi-person-vcard-fill"></i> Người Dùng
+            </div>
+            <div id="infor">
                 <i class="bi bi-gear"></i> Cài Đặt
             </div>
-            <div >
-                <form method="POST" action="{{ route('logout') }}" style="margin-top: 0.1rem;">
-                    @csrf
-                    <button type="submit" class="dropdown-item" style="background: none; border: none; color: white;">
-                        <i class="bi bi-box-arrow-left"></i> Đăng Xuất
-                    </button>
-                </form>
+
+            <div id="admin">
+                <i class="bi bi-person-circle"></i> {{$name}}
+                <ul id="admin-dropdown" style="display: none;">
+                    <li>
+
+                        <div>
+                            <form method="POST" action="{{ route('welcome') }}" >
+                                @csrf
+                                @method('GET')
+                                <button type="submit" class="dropdown-item" style="background: none; border: none; color: white;">
+                                    <i class="bi bi-arrow-left-square"></i> Trang Ngoài
+                                </button>
+                            </form>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <form method="POST" action="{{ route('logout') }}" >
+                                @csrf
+                                <button type="submit" id="logout-button" class="dropdown-item" style="background: none; border: none; color: white;">
+                                    <i class="bi bi-box-arrow-left"></i> Đăng Xuất
+                                </button>
+                            </form>
+                        </div>
+                    </li>
+                </ul>
             </div>
+
         </div>
-        <div class="d-flex flex-column p-3" style="width: 100%;" id="main-right-content">
+        <div class="d-flex flex-column p-3" style="width: 100%; height: 100%" id="main-right-content">
             <div id="dynamic-content">
             </div>
         </div>
     </div>
+
     @if(session('success'))
     <script>
         alert("{{ session('success') }}");
     </script>
     @endif
+
     <script>
-    $(document).ready(function() {
-    let currentUrl = sessionStorage.getItem('currentUrl') || '/load-products'; 
-    $("#load-product").click(function() {
-        currentUrl = '/load-products'; 
+       $(document).ready(function() {
+    let currentUrl = sessionStorage.getItem('currentUrl') || '/infor'; 
+    sessionStorage.setItem('currentUrl', currentUrl); 
+    loadContent(currentUrl, 'Đang tải sản phẩm...'); 
+
+    $("#load-products, #load-articles, #load-orders, #load-users, #infor").click(function() {
+        let targetUrl = $(this).attr("id").replace("load-", "/load-"); 
+        currentUrl = targetUrl; 
         sessionStorage.setItem('currentUrl', currentUrl); 
-        loadContent(currentUrl, 'Đang tải sản phẩm...');
+        loadContent(currentUrl, `Đang tải ${$(this).text()}...`);
     });
-    $("#load-articles").click(function() {
-        currentUrl = '/load-articles'; 
-        sessionStorage.setItem('currentUrl', currentUrl); 
-        loadContent(currentUrl, 'Đang tải bài viết...');
-    });
-    function loadContent(url, loadingMessage) {
+
+    async function loadContent(url, loadingMessage) {
         $("#dynamic-content").html(`<p>${loadingMessage}</p>`);
-        $.ajax({
-            url: url,
-            method: 'GET',
-            success: function(data) {
-                $("#dynamic-content").html(data);
-                setupPagination(url);      
-                setupDeleteHandler(url);    
-            }
-        });
+        try {
+            let response = await $.ajax({
+                url: url,
+                method: 'GET'
+            });
+            $("#dynamic-content").html(response);
+            setupPagination(url);      
+            setupDeleteHandler(url);    
+        } catch (error) {
+            $("#dynamic-content").html(`<p>Đã xảy ra lỗi, vui lòng thử lại!</p>`);
+            console.error("Error loading content:", error);
+        }
     }
+
     function setupPagination(url) {
         $("#dynamic-content").on("click", ".pagination a", function(e) {
             e.preventDefault();
             let pageUrl = $(this).attr("href");
-            currentUrl = pageUrl; 
+            currentUrl = pageUrl;
             sessionStorage.setItem('currentUrl', currentUrl);
             loadContent(pageUrl, 'Đang tải...');
         });
     }
+
     function setupDeleteHandler(url) {
         $(".delete-button").click(function(e) {
             e.preventDefault();
@@ -175,7 +210,7 @@
                 data: form.serialize(),
                 success: function(response) {
                     if (response.success) {
-                        loadContent(url, 'Đang tải lại danh sách...'); 
+                        loadContent(url, 'Đang tải lại danh sách...');
                     } else {
                         alert("Đã xảy ra lỗi, vui lòng thử lại!");
                     }
@@ -186,8 +221,22 @@
             });
         });
     }
-    loadContent(currentUrl, 'Đang tải sản phẩm...'); 
+    $("#logout-button").click(function () {
+    sessionStorage.clear(); 
 });
+$("#admin").click(function() {
+        $("#admin-dropdown").toggle();  // Hiện/ẩn dropdown
+    });
+
+    // Tắt dropdown nếu click ra ngoài
+    $(document).click(function(event) {
+        if (!$(event.target).closest('#admin').length && !$(event.target).closest('#admin-dropdown').length) {
+            $("#admin-dropdown").hide();  // Ẩn dropdown khi click ngoài
+        }
+    });
+
+});
+
     </script>
 </body>
 </html>

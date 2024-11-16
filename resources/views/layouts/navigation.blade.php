@@ -6,8 +6,9 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('welcome') }}">
-                    <img src="images/logo.png" style="width:50px" alt="">
+                    <img src="{{ asset('images/logo.png') }}" style="width:50px" alt="">
                     </a>
+                    
                 </div>
 
                 <!-- Liên Kết Điều Hướng -->

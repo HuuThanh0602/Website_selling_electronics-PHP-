@@ -8,7 +8,7 @@
             </div>
         </div>
         <div class="col-md-6 text-end">
-    <a href="#" class="btn btn-success" id="add-new-product-btn">
+    <a href="" class="btn btn-success" id="add-new-product-btn">
         <i class="bi bi-plus-circle-fill"></i> <span>Thêm mới</span>
     </a>                  
 </div>
@@ -36,7 +36,7 @@
                 <td>{{ number_format($product->sale_price, 0, ',', '.') }} VNĐ</td>
                 <td>{{ $product->quantity }}</td>
                 <td>
-                    <img src="images/product/{{ $product->image }}" alt="Li's Product Image" style="width: 100px; height: auto;">
+                    <img src="{{ asset('images/product/'.$product->image ) }}" alt="Li's Product Image" style="width: 100px; height: auto;">
                 </td>
                 <td>{{ number_format($product->purchase_price, 0, ',', '.') }} VNĐ</td>
                 <td >

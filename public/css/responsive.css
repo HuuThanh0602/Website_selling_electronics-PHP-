@@ -778,16 +778,6 @@ Note: responsive.css, All Responsive CSS Style For This Theme Included In This F
 	.cart-quantity .add-to-cart {
 		padding: 13px 40px;
 	}
-	/*404 Error Page Area*/
-	.error-text h1 {
-		font-size: 120px;
-	}
-	.error-text h2 {
-		font-size: 28px;
-	}
-	.error-text > p {
-		font-size: 17px;
-	}
 	#search-form {
 		width: 250px;
 	}
@@ -871,44 +861,10 @@ Note: responsive.css, All Responsive CSS Style For This Theme Included In This F
 	.category-menu-list > ul > li i.expand:after {
 	 -webkit-transform: scaleY(1);
 	 transform: scaleY(1);
-	}
-	li.right-menu .cat-mega-menu > li {
-	 -webkit-box-flex: 0;
-	     -ms-flex: 0 0 100%;
-	         flex: 0 0 100%;
-	    width: 100%;
-	 padding: 0;
-	 position: relative;
-	}
-	.cat-mega-menu > li.cat-mega-title > a:after{
-	    display: none;        
-	}
-	.cat-mega-menu > li.cat-mega-title > a,
-	.cat-mega-menu > li > ul > li > a,
-	.cat-dropdown > li > a{
-	 padding: 10px 25px 10px 35px;
-	 line-height: 18px;
-	 font-size: 13px;
-	 color: #7a7a7a;
-	 font-weight: normal;
-	 position: relative;
-	 margin: 0;
-	    border-bottom: 1px solid #e8e8e8;
-	    display: block;
-	 text-transform: inherit;
-	}
-	.cat-mega-menu > li.cat-mega-title:last-child > a,
-	.cat-mega-menu > li > ul > li:last-child > a,
-	.cat-dropdown > li:last-child > a{
-	    border-bottom: 0;        
-	}
+
 	/*Blog Details Page*/
 	.li-blog-single-item .li-blog-content .li-blog-details h3 {
 		font-size: 18px;
-	}
-	/*Contact Page*/
-	h3.contact-page-title {
-		font-size: 25px;
 	}
 }
 /*----------------------------------------------------------------------------------------------------*/

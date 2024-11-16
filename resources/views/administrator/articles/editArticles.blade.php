@@ -21,7 +21,8 @@
                     <input type="file" class="form-control" id="image" name="image">
                     <!-- Hiển thị hình ảnh hiện tại nếu có -->
                     @if($article->image)
-                        <img src="images/articles/{{ $article->image }}" alt="Product Image" width="100">
+                        <img src="{{ asset('images/articles/'.$article->image) }} " alt="Product Image" width="100">
+                        
                     @endif
                 </div>
 
