@@ -5,10 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Articles;
 use App\Models\Products;
 use Illuminate\Http\Request;
-use App\Http\Middleware\CheckAdmin;
 use App\Models\Order;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
+
+use Illuminate\Support\Facades\File;
+use Spatie\PdfToImage\Pdf;
 
 class AdminController extends Controller
 {
@@ -32,16 +36,17 @@ class AdminController extends Controller
         $articles = Articles::paginate(10);
         return view('administrator.articles.articles', compact('articles')); 
     }
-    public function destroyproduct($id)
-    {
-        $product = Products::findOrFail($id); 
-        $product->delete();
 
-        return redirect()->back()->with('success', 'Sản phẩm đã được xóa thành công!');
-    }
     public function destroyarticle($id)
     {
         $article = Articles::findOrFail($id);
+        if (!empty($article->image)) {
+            $imagePath = public_path('images/articles/' . $article->image);
+            if (file_exists($imagePath)) {
+                unlink($imagePath); 
+            }
+        }
+        
         $article->delete();
 
         return redirect()->back()->with('success', 'Bài viết đã được xóa thành công!');
@@ -57,7 +62,7 @@ class AdminController extends Controller
         'purchase_price' => 'required|numeric',
         'sale_price' => 'required|numeric',
         'quantity' => 'required|numeric',
-        'image' => 'required|image|mimes:jpg,png,jpeg,gif|max:2048', 
+        'image' => 'image|mimes:jpg,png,jpeg,gif', 
     ]);
     if ($request->hasFile('image')) {
         $imageName = time() . '.' . $request->image->extension(); 
@@ -79,6 +84,19 @@ class AdminController extends Controller
         $product = Products::findOrFail($id);
         return view('administrator.products.editProducts', compact('product'));
 
+    }
+    public function destroyproduct($id)
+    {
+        $product = Products::findOrFail($id); 
+        if (!empty($product->image)) {
+            $imagePath = public_path('images/product/' . $product->image);
+            if (file_exists($imagePath)) {
+                unlink($imagePath); 
+            }
+        }
+        $product->delete();
+
+        return redirect()->back()->with('success', 'Sản phẩm đã được xóa thành công!');
     }
     
     public function updateproduct(Request $request, $id)
@@ -115,8 +133,8 @@ class AdminController extends Controller
     public function storearticle(Request $request){
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
-            'content' => 'required|numeric',
-            'image' => 'required|image|mimes:jpg,png,jpeg,gif|max:2048', 
+            'content' => 'required',
+            'image' => 'image|mimes:jpg,png,jpeg,gif', 
         ]);
         if ($request->hasFile('image')) {
             $imageName = time() . '.' . $request->image->extension(); 
@@ -201,6 +219,54 @@ class AdminController extends Controller
     
         return redirect()->back()->with('success', 'Mật khẩu đã được cập nhật thành công.');
     }
+
+    public function uploadFile(Request $request)
+    {
+
+        $request->validate([
+            'file' => 'required|mimes:pdf,docx',
+        ]);
+        
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $fileName =$file->getClientOriginalName();
+            
+
+            $filePath = public_path('uploads');  
+            $file->move($filePath, $fileName); 
+
+            if ($file->getClientOriginalExtension() === 'pdf') {
+            }
+    
+
+            return back()->with('success', 'Tải File thành công');
+        }
+    }
+    
+    public function loadDocuments()
+    {
+        $files = scandir(public_path('uploads'));  
+        return view('administrator.documents.document', compact('files'));
+    }
+
+
+    public function deleteFile($file)
+    {
+        $filePath = public_path('uploads/' . $file);
+        
+        if (File::exists($filePath)) {
+            File::delete($filePath);  
+            return back()->with('success', 'File đã được xóa thành công.');
+        }
+
+        return back()->with('error', 'File không tồn tại.');
+    }
+
+
+    public function createDocuments(){
+        return view('administrator.documents.addDocument');
+    }
+
     
     
 

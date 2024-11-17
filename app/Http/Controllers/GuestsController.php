@@ -297,6 +297,30 @@ class GuestsController extends Controller
         return redirect()->route('welcome')->with('success', 'Đặt hàng thành công');
     }
     
-    
+    public function loadDocuments()
+    {
+        $role = optional(Auth::user())->role;
+        if (Auth::check()) {
+            $cart = Cart::where('user_id', Auth::id())->first();
+            if (!$cart) {
+                $cart = Cart::create(['user_id' => Auth::id()]);
+            }
+            $cartItems = $cart->cartItems ?? collect();
+            $cartItems = $cartItems->map(function ($cartItem) {
+                $cartItem->total_price = $cartItem->quantity * $cartItem->price; 
+                return $cartItem;
+            });
+
+            $totalAmount = $cartItems->sum('total_price'); 
+        } else {
+            $cartItems = collect();
+            $totalAmount = 0;
+        }
+        $totalQuantity = $cartItems->sum('quantity');
+
+        $files = scandir(public_path('uploads'));  
+        return view('documents.documents', compact('files','role', 'cartItems', 'totalAmount', 'totalQuantity'));
+    }
+
     
 }

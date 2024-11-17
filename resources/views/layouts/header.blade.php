@@ -90,8 +90,7 @@
                                                 @auth 
                                                 <span class="bi bi-person-circle" style="color:white; font-size:20px ;"></span>                               
                                                 <div class="hm-minicart-trigger" style="background-color:#263b96;">
-                                                    <span class="item-text">{{ Auth::user()->name }}                                       
-                                                    </span>
+                                                    <span class="item-text">{{ Str::limit(Auth::user()->name, 8) }}</span>
                                                 </div>                                          
                                             <div class="minicart">
                                                 <ul class="minicart-product-list">
@@ -100,16 +99,13 @@
                                                             <a class="dropdown-item" href="{{ route('admin') }}" style="color: black;">
                                                                 Quản trị trang web
                                                             </a>
-                                                        </li>
-                                                    
+                                                        </li>                                                   
                                                     @endif
                                                     <li>
                                                     <a class="dropdown-item" href="{{ route('profile.edit') }}" style="color: black;">
                                                         Hồ sơ
                                                     </a>
-                                                    </li>
-                                                    
-                                                    
+                                                    </li>                                                                     
                                                     <li>  
                                                         <form method="POST" action="{{ route('logout') }}" style="margin-top: 0.1rem;">
                                                                 @csrf
@@ -162,7 +158,7 @@
                                            </li>
                                            <li class=""><a href="{{route('articles')}}" style="color:#263b96;">BÀI VIẾT</a></li>
                                            <li class=""><a href="{{ route('introduction') }}" style="color:#263b96;">GIỚI THIỆU</a></li>
-                                           <li class="megamenu-static-holder"><a href="{{route('welcome')}}" style="color:#263b96;">Tư liệu tham khảo</a>
+                                           <li class="megamenu-static-holder"><a href="{{route('documents')}}" style="color:#263b96;">Tư liệu tham khảo</a>
                                                
                                            </li>
                                                 

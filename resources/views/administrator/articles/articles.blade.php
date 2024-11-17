@@ -90,3 +90,17 @@
         });
     });
 </script>
+
+
+
+
+<tbody>
+        @foreach ($articles as $article)
+            <tr>
+                <td>{{ $article->id }}</td>
+                <td>{{ $article->title }}</td>
+                <td>{{ $article->content }}</td>
+                <td>{{ $article->created_at }}</td>
+            </tr>
+        @endforeach
+    </tbody>

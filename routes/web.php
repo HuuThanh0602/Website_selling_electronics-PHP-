@@ -16,6 +16,7 @@ Route::get('/products/detail/{id}', [GuestsController::class, 'productshow'])->n
 Route::get('/articles', [GuestsController::class, 'articles'])->name('articles');
 Route::get('/articles/detail/{id}', [GuestsController::class, 'articleshow'])->name('article.show');
 
+Route::get('/documents', [GuestsController::class, 'loadDocuments'])->name('documents');
 
 
 
@@ -29,7 +30,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/shopping/cart', [GuestsController::class, 'shoppingCart'])->name('shopping.cart');
     Route::post('/shopping/cart/upadte', [GuestsController::class, 'updateCart'])->name('shopping.update');
-    
+   
     Route::get('/checkout', [GuestsController::class, 'viewCheckout'])->name('shopping.checkout');
 
     Route::post('/checkout/store', [GuestsController::class, 'checkoutStore'])->name('checkout.store');
@@ -70,7 +71,13 @@ Route::middleware([CheckAdmin::class])->group(function () {
     Route::get('/load-users', [AdminController::class, 'loadUser']);
     Route::put('/users/{id}/role', [AdminController::class, 'updateRole'])->name('users.updateRole');
     Route::put('/users/{id}/password', [AdminController::class, 'updatePassword'])->name('users.updatePassword');
-    
+
+
+
+    Route::get('/load-documents', [AdminController::class, 'loadDocuments']);
+    Route::get('/add-documents', [AdminController::class, 'createDocuments']);
+    Route::post('/store-documents', [AdminController::class, 'uploadFile'])->name('documents.store');
+    Route::delete('documents/{file}', [AdminController::class, 'deleteFile'])->name('documents.delete');
     
 
 

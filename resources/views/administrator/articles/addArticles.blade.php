@@ -16,7 +16,7 @@
                 </div>
                 <div class="form-group">
                     <label for="image">Hình ảnh</label>
-                    <input type="file" class="form-control" id="image" name="image" required>
+                    <input type="file" class="form-control" id="image" name="image">
                 </div>
                 <div class="modal-footer">
                     <a href="" class="btn btn-secondary">Quay lại</a>

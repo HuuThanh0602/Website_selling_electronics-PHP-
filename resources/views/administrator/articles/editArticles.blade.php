@@ -19,7 +19,6 @@
                 <div class="form-group">
                     <label for="image">Hình ảnh</label>
                     <input type="file" class="form-control" id="image" name="image">
-                    <!-- Hiển thị hình ảnh hiện tại nếu có -->
                     @if($article->image)
                         <img src="{{ asset('images/articles/'.$article->image) }} " alt="Product Image" width="100">
                         

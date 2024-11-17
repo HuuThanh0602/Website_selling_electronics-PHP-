@@ -112,6 +112,9 @@
             <div class="main-left-3" id="load-orders">
                 <i class="bi bi-truck"></i> Đơn Hàng
             </div>
+            <div class="main-left-3" id="load-documents">
+                <i class="bi bi-folder2"></i> Tài Liệu
+            </div>
             <div class="main-left-3" id="load-users">
                 <i class="bi bi-person-vcard-fill"></i> Người Dùng
             </div>
@@ -166,7 +169,7 @@
     sessionStorage.setItem('currentUrl', currentUrl); 
     loadContent(currentUrl, 'Đang tải sản phẩm...'); 
 
-    $("#load-products, #load-articles, #load-orders, #load-users, #infor").click(function() {
+    $("#load-products, #load-articles, #load-orders, #load-users, #infor,#load-documents").click(function() {
         let targetUrl = $(this).attr("id").replace("load-", "/load-"); 
         currentUrl = targetUrl; 
         sessionStorage.setItem('currentUrl', currentUrl); 
@@ -225,13 +228,11 @@
     sessionStorage.clear(); 
 });
 $("#admin").click(function() {
-        $("#admin-dropdown").toggle();  // Hiện/ẩn dropdown
+        $("#admin-dropdown").toggle(); 
     });
-
-    // Tắt dropdown nếu click ra ngoài
     $(document).click(function(event) {
         if (!$(event.target).closest('#admin').length && !$(event.target).closest('#admin-dropdown').length) {
-            $("#admin-dropdown").hide();  // Ẩn dropdown khi click ngoài
+            $("#admin-dropdown").hide();
         }
     });
 

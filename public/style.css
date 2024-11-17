@@ -2767,12 +2767,7 @@ textarea:focus {
 	background: #fed700 ;
 }
 /*Social Link Color Variations*/
-.twitter {
-	background: #40c1df;
-}
-.rss {
-	background: #eb8314;
-}
+
 .google-plus {
 	background: #ed3c32;
 }
@@ -2780,11 +2775,9 @@ textarea:focus {
 	background: #3c5b9b;
 }
 .youtube {
-	background: #c72982;
+	background: #ff0032;
 }
-.instagram {
-	background: #c619b8;
-}
+
 /*Footer Newsletter*/
 .footer-newsletter {
 	float: left;

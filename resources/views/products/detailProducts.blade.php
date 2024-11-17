@@ -183,7 +183,7 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a class="btn btn-outline-info" href="" data-toggle="modal" data-target="#exampleModalCenter">
+                                                        <a class="btn btn-outline-info" href="{{route('product.show', $product->id)}}" >
                                                             <i class="fa fa-eye"></i>
                                                         </a>
                                                     </li>

@@ -10,11 +10,14 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up()
-{
-    Schema::table('articles', function (Blueprint $table) {
-        $table->timestamp('updated_at')->nullable(); 
-    });
-}
+    {
+        Schema::table('articles', function (Blueprint $table) {
+            if (!Schema::hasColumn('articles', 'updated_at')) {
+                $table->timestamp('updated_at')->nullable();
+            }
+        });
+    }
+    
 
 public function down()
 {
