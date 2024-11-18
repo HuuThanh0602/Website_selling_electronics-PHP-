@@ -9,6 +9,9 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('js/jquery-3.5.1.min.js') }}"></script>
+    <script src="{{ asset('js/popper.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/logo.png') }}">
 
@@ -91,13 +94,20 @@
         #admin-dropdown li:hover {
             background-color: #6c757d;
         } 
+        table.table td {
+            word-wrap: break-word;
+            max-width: 385px; 
+            white-space: normal; 
+        }
+
 
     </style>
 </head>
+
 <body>
     <div class="d-flex">
         <div class="main-left">
-            <h2 class="title">Trang chủ</h2>
+            <h2 class="title">Quản trị Website</h2>
             
             <div class="main-left-1" id="infor">
                 <i class="bi bi-house-gear-fill"></i> Trang chủ quản trị
@@ -151,18 +161,19 @@
             </div>
 
         </div>
-        <div class="d-flex flex-column p-3" style="width: 100%; height: 100%" id="main-right-content">
-            <div id="dynamic-content">
+        <div class="d-flex m-3" id="main-right-content">
+            @if (session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="font-size: 10px;"></button>
+            </div>
+            @endif
+            <div >
+                <div id="dynamic-content">
+                </div>
             </div>
         </div>
     </div>
-
-    @if(session('success'))
-    <script>
-        alert("{{ session('success') }}");
-    </script>
-    @endif
-
     <script>
        $(document).ready(function() {
     let currentUrl = sessionStorage.getItem('currentUrl') || '/infor'; 

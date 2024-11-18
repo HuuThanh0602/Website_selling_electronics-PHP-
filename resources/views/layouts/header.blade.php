@@ -1,22 +1,24 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/logo.png') }}">
     <link rel="stylesheet" href="{{ asset('css/material-design-iconic-font.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/fontawesome-stars.css') }}">
     <link rel="stylesheet" href="{{ asset('css/meanmenu.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/slick.css') }}">
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/venobox.css') }}">
     <link rel="stylesheet" href="{{ asset('css/nice-select.css') }}">
     <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/venobox.css') }}">
     <link rel="stylesheet" href="{{ asset('css/helper.css') }}">
     <link rel="stylesheet" href="{{ asset('style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">      
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
     <script src="{{ asset('js/vendor/modernizr-2.8.3.min.js') }}"></script>
+
+    
 <header class="li-header-4" style="background-color:#263b96;">
                 <div class="header-middle pl-sm-0 pr-sm-0 pl-xs-0 pr-xs-0">
                     <div class="container" >

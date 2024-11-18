@@ -201,9 +201,9 @@
                                                     <div class="post-image">
                                                         <img src="{{ asset('images/articles/'.$article->image)}}" alt="Bài viết số {{$article->id}}" class="img-fluid" style="width: 100%; height: auto; margin-bottom: 20px;">
                                                     </div>
-                                                    <div class="post-content">
-                                                        <h5>{{ $article->title }}</h5> 
-                                                        <p>{{ Str::limit($article->content, 100) }}...</p> 
+                                                    <div class="post-content" style="word-wrap: break-word;">
+                                                        <h5>$article->title</h5> 
+                                                        <p>{{ Str::limit($article->content, 100) }}</p> 
                                                         <div class="d-flex justify-content-between align-items-center">
                                                         <span class="post-meta">
                                                             <i class="bi bi-calendar"></i> 

@@ -32,7 +32,7 @@
                                         <div class="li-blog-banner">
                                             <a href="{{route('article.show', $article->id)}}"><img class="img-full" src="images\articles\{{$article->image}}" alt="Bài viết số {{$article->id}}"></a>
                                         </div>
-                                        <div class="li-blog-content">
+                                        <div class="li-blog-content" style="word-wrap: break-word;">
                                             <div class="li-blog-details">
                                                 <h3 class="li-blog-heading pt-25"><a href="{{route('article.show', $article->id)}}">{{$article->title}}</a></h3>
                                                 <div class="li-blog-meta">
@@ -40,7 +40,7 @@
                                                     <a class="comment" href=""><i class="fa fa-comment-o"></i> 3 bình luận</a>
                                                     <a class="post-time" href=""><i class="fa fa-calendar"></i>  {{ $article->created_at->day }}/{{ $article->created_at->month }}/{{ $article->created_at->year }}</a>
                                                 </div>
-                                                <p>{{ Str::limit($article->content, 100) }}...</p>
+                                                <p>{{ Str::limit($article->content, 120) }}...</p>
                                                 <a class="read-more" href="{{route('article.show', $article->id)}}">Đọc tiếp...</a>
                                             </div>
                                         </div>
