@@ -119,13 +119,12 @@
                                 </div>
                                 <button class="btn-clear-all mb-sm-30 mb-xs-30">Xóa tất cả</button>
                                 <div class="filter-sub-area">
-                                    <h5 class="filter-sub-titel">Thương hiệu</h5>
+                                    <h5 class="filter-sub-titel">Thành phần sản phẩm</h5>
                                     <div class="categori-checkbox">
                                         <form action="#">
                                             <ul>
-                                                <li><input type="checkbox" name="product-categori"><a href="">Prime Video (13)</a></li>
-                                                <li><input type="checkbox" name="product-categori"><a href="">Máy tính (12)</a></li>
-                                                <li><input type="checkbox" name="product-categori"><a href="">Điện tử (11)</a></li>
+                                                <li><input type="checkbox" name="product-categori"><a href="">Cơ khí</a></li>
+                                                <li><input type="checkbox" name="product-categori"><a href="">Điện tử</a></li>
                                             </ul>
                                         </form>
                                     </div>
@@ -135,46 +134,8 @@
                                     <div class="categori-checkbox">
                                         <form action="#">
                                             <ul>
-                                                <li><input type="checkbox" name="product-categori"><a href="">Góc đồ họa (10)</a></li>
-                                                <li><input type="checkbox" name="product-categori"><a href="">Thiết kế Studio (6)</a></li>
-                                            </ul>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="filter-sub-area pt-sm-10 pt-xs-10">
-                                    <h5 class="filter-sub-titel">Kích thước</h5>
-                                    <div class="size-checkbox">
-                                        <form action="#">
-                                            <ul>
-                                                <li><input type="checkbox" name="product-size"><a href="">S (3)</a></li>
-                                                <li><input type="checkbox" name="product-size"><a href="">M (3)</a></li>
-                                                <li><input type="checkbox" name="product-size"><a href="">L (3)</a></li>
-                                                <li><input type="checkbox" name="product-size"><a href="">XL (3)</a></li>
-                                            </ul>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="filter-sub-area pt-sm-10 pt-xs-10">
-                                    <h5 class="filter-sub-titel">Màu sắc</h5>
-                                    <div class="color-categoriy">
-                                        <form action="#">
-                                            <ul>
-                                                <li><span class="white"></span><a href="">Trắng (1)</a></li>
-                                                <li><span class="black"></span><a href="">Đen (1)</a></li>
-                                                <li><span class="Orange"></span><a href="">Cam (3)</a></li>
-                                                <li><span class="Blue"></span><a href="">Xanh dương (2)</a></li>
-                                            </ul>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="filter-sub-area pt-sm-10 pb-sm-15 pb-xs-15">
-                                    <h5 class="filter-sub-titel">Kích thước (Chiều dài x Chiều rộng)</h5>
-                                    <div class="categori-checkbox">
-                                        <form action="#">
-                                            <ul>
-                                                <li><input type="checkbox" name="product-categori"><a href="">40x60cm (6)</a></li>
-                                                <li><input type="checkbox" name="product-categori"><a href="">60x90cm (6)</a></li>
-                                                <li><input type="checkbox" name="product-categori"><a href="">80x120cm (6)</a></li>
+                                                <li><input type="checkbox" name="product-categori"><a href="">Sản phẩm</a></li>
+                                                <li><input type="checkbox" name="product-categori"><a href="">Vật tư</a></li>
                                             </ul>
                                         </form>
                                     </div>
@@ -186,12 +147,9 @@
                                 </div>
                                 <div class="category-tags">
                                     <ul>
-                                        <li><a href="">Devita</a></li>
-                                        <li><a href="">Máy ảnh</a></li>
-                                        <li><a href="">Sony</a></li>
-                                        <li><a href="">Máy tính</a></li>
-                                        <li><a href="">Giảm giá lớn</a></li>
-                                        <li><a href="">Phụ kiện</a></li>
+                                        <li><a href="">Bản lề</a></li>
+                                        <li><a href="">Trục quay</a></li>
+                                        <li><a href="">Kẹp trục động cơ</a></li>
                                     </ul>
                                 </div>
                             </div>

@@ -59,21 +59,21 @@
                                     <div class="footer-logo">
                                         <img src=" {{ asset('images/logo.png') }}" alt="Footer Logo" style="width:100px">
                                         <p class="info">
-                                        Tôi là Nguyễn Hữu Thành    
+                                        Tôi là Nguyễn Thuỳ Linh
                                         </p>
                                     </div>
                                     <ul class="des">
                                         <li>
                                             <span>Địa chỉ: </span>
-                                            Hải Phòng
+                                            Hà Nội
                                         </li>
                                         <li>
                                             <span>Điện thoại: </span>
-                                            <a href="#">(+84) 123 321 345</a>
+                                            <a href="#">(+84) 977393353</a>
                                         </li>
                                         <li>
                                             <span>Email: </span>
-                                            <a href="mailto://info@yourdomain.com">nguyenhuuthanh06022004@gmail.com</a>
+                                            <a href="mailto://info@yourdomain.com">nguyenthuylinh310vt@gmail.com</a>
                                         </li>
                                     </ul>
                                 </div>

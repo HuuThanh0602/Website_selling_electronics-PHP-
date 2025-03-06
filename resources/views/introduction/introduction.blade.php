@@ -19,20 +19,20 @@
                         <!-- Begin Slider Area -->
                         <div  style="margin-left:  30px ;">
                             <h1 >Giới thiệu</h1>
-                            <p>Trang giới thiệu giúp khách hàng hiểu rõ hơn về cửa hàng của bạn. Hãy cung cấp thông tin cụ thể về việc kinh doanh, về cửa hàng, thông tin liên hệ. Điều này sẽ giúp khách hàng cảm thấy tin tưởng khi mua hàng trên website của bạn.
-                            <br> Một vài gợi ý cho nội dung trang Giới thiệu:</p>
-                            <ul style="margin-left: 20px; font-size: larger;">
-                                <li style="list-style-type: disc;">1</li>
-                                <li style="list-style-type: disc;">2</li>
-                                <li style="list-style-type: disc;">3</li>
-                                <li style="list-style-type: disc;">4</li>
-                                <li style="list-style-type: disc;">5</li>
-                                <li style="list-style-type: disc;">6</li>
-                                <li style="list-style-type: disc;">7</li>
+                            <p> Rolat không chỉ là một cộng đồng, mà còn là nơi khơi nguồn sáng tạo và kết nối những tâm hồn đam mê công nghệ. 
+                                Các thành viên tại đây không ngừng học hỏi, chia sẻ kiến thức và cùng nhau khám phá những ứng dụng mới của robot 
+                                và hệ thống tự động hóa.  <br> Với tinh thần làm việc nhóm và đổi mới, Rolat đã và đang nghiên cứu, phát triển nhiều sản phẩm mang tính thực tiễn cao như: </p>
+                            <ul style="margin-left: 20px">
+                                <li style="list-style-type: disc;">Robot hỗ trợ trong giáo dục, giúp trẻ em học tập thông minh hơn.</li>
+                                <li style="list-style-type: disc;">Hệ thống tự động hóa trong nông nghiệp, tăng năng suất và giảm thiểu công sức lao động.</li>
+                                <li style="list-style-type: disc;">Robot phục vụ trong các lĩnh vực công nghiệp, giải trí, và đời sống hằng ngày.</li>
                             </ul>
-                            <p>Bạn có thể chỉnh sửa hoặc xoá bài viết này tại <strong>đây</strong> hoặc thêm những bài viết mới trong phần quản lý <strong>Trang nội dung</strong>.</p>
-                            <img src="1.jpg" alt="" style="margin-left: 250px; width: 50%;">
-                        </div>
+                            <p> <br> Rolat không ngừng mở rộng hợp tác với các doanh nghiệp, trung tâm nghiên cứu 
+                                và các chuyên gia trong ngành để đưa các ý tưởng sáng tạo từ phòng thí nghiệm ra thực tế. 
+                                Cộng đồng cũng thường xuyên tổ chức các buổi workshop, cuộc thi, và giao lưu học hỏi với các đội robot khác, 
+                                tạo sân chơi bổ ích cho sinh viên và lan tỏa niềm đam mê công nghệ đến xã hội.</p>
+                            <img src=" {{ asset('images/introduce/robot.jpg') }}" alt="hinhanh-robot" style="margin-left: 250px; width: 50%;">
+                                </div>
                     </div>
                 </div>
             </div>

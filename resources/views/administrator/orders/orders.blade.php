@@ -40,7 +40,7 @@
                 <td>{{ $order->district}}</td>
 
                 <td>{{ $order->phone }}</td>
-                <td>{{ $order->total_amount }}</td>
+                <td>{{ number_format($order->total_amount, 0, ',', '.') }} VNĐ</td>
                 <td>
                     <form action="{{ route('orders.updateStatus', $order->id) }}" method="POST">
                         @csrf

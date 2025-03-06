@@ -167,7 +167,13 @@
                 {{ session('success') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="font-size: 10px;"></button>
             </div>
+            <script>
+                setTimeout(function() {
+                    $('.alert').alert('close');
+                }, 5000);
+            </script>
             @endif
+
             <div >
                 <div id="dynamic-content">
                 </div>
